@@ -1,0 +1,77 @@
+@import "base/variables";
+
+.report {
+  margin-bottom: 4rem;
+  .report-title {
+    a {
+      text-decoration: none;
+      &:active,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    margin: 3px 0;
+    color: $primary-color;
+  }
+
+  .report-subtitle {
+    margin: 3px 0;
+  }
+
+  .report-date {
+    font-style: italic;
+  }
+
+  .report-excerpt {
+    margin: 5px 0;
+  }
+
+  .report-body {
+    margin: 25px 0;
+  }
+
+  .report-categories-title {
+    margin: 55px 0 10px 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .report-categories {
+    .report-category {
+      display: inline-flex;
+      align-self: center;
+      background-color: $slate-gray-100;
+      border: 1px $slate-gray-200 solid;
+      padding: 4px 8px;
+      margin: 5px 0;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+      .icon-container {
+        height: 24px;
+        .icon {
+          width: 15px;
+          height: 100%;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+.back {
+  margin-bottom: 30px;
+  .arrow {
+    border: solid $primary-color;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+}

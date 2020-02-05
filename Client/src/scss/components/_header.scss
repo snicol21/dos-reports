@@ -1,0 +1,68 @@
+header {
+  padding-top: 20px;
+  margin-bottom: 10px;
+  @include flex_center;
+
+  h1,
+  div {
+    @include flex_center;
+    width: 100vw;
+    text-decoration: none;
+    color: $off-black;
+    margin: 0;
+  }
+  div {
+    padding-bottom: 10px;
+  }
+
+  @include small-breakpoint {
+    @include flex_space_between;
+    margin-bottom: 20px;
+    h1,
+    div {
+      @include flex_start;
+      width: auto;
+    }
+    div {
+      padding-bottom: 0;
+    }
+  }
+}
+
+nav {
+  @include flex_center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $gray-300;
+  margin-bottom: 60px;
+
+  a:not(:last-child) {
+    padding-right: 10px;
+  }
+  a:not(:first-child) {
+    padding-left: 10px;
+  }
+
+  @include small-breakpoint {
+    @include flex_start;
+    padding-bottom: 20px;
+  }
+}
+
+header,
+nav {
+  min-width: 230px;
+
+  a {
+    text-decoration: none;
+    color: $off-black;
+    &:active,
+    &:hover {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+  a.active {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
