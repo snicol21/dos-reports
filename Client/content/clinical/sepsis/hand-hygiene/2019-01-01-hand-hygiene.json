@@ -1,5 +1,6 @@
 {
   "date": "2019-01-01",
   "title": "Sepsis Hand Hygiene Report",
-  "subtitle": "with a subtitle"
+  "subtitle": "with a subtitle",
+  "latest": true
 }
