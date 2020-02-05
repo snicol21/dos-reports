@@ -11,6 +11,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `json`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: `${__dirname}/src/components/layout.js`,

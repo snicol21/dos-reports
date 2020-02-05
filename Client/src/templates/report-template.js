@@ -1,13 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from "../components/seo"
-import Icon from "../components/icon"
+// import Icon from "../components/icon"
 
-const ReportLayout = ({ data: { mdx } }) => {
+const ReportLayout = ({ data: { json } }) => {
   return (
     <>
-      <SEO title={mdx.frontmatter.title} />
+      <SEO title={json.title} />
       <div className="back">
         <Link to="/reports">
           <i className="arrow left"></i>
@@ -15,15 +14,13 @@ const ReportLayout = ({ data: { mdx } }) => {
         </Link>
       </div>
       <div className="report">
-        <h3 className="report-title">{mdx.frontmatter.title}</h3>
-        {mdx.frontmatter.subtitle && (
+        <h3 className="report-title">{json.title}</h3>
+        {/* {mdx.frontmatter.subtitle && (
           <h5 className="report-subtitle">{mdx.frontmatter.subtitle}</h5>
-        )}
-        <small className="report-date">{mdx.frontmatter.date}</small>
-        <div className="report-body">
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-        </div>
-        {mdx.frontmatter.categories && (
+        )} */}
+        <small className="report-date">{json.date}</small>
+        <div className="report-body">body</div>
+        {/* {mdx.frontmatter.categories && (
           <>
             <div className="report-categories-title">Categories</div>
             <div className="report-categories">
@@ -34,7 +31,7 @@ const ReportLayout = ({ data: { mdx } }) => {
               ))}
             </div>
           </>
-        )}
+        )} */}
       </div>
     </>
   )
@@ -44,15 +41,10 @@ export default ReportLayout
 
 export const pageQuery = graphql`
   query ReportPageQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      body
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        subtitle
-        categories
-      }
+    json(id: { eq: $id }) {
       id
+      date(formatString: "MMMM DD, YYYY")
+      title
     }
   }
 `
