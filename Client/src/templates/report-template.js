@@ -8,7 +8,7 @@ const ReportLayout = ({ data: { json } }) => {
     <>
       <SEO title={json.title} />
       <div className="back">
-        <Link to="/reports">
+        <Link to="/">
           <i className="arrow left"></i>
           {`Back to reports`}
         </Link>

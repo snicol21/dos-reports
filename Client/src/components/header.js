@@ -30,9 +30,6 @@ const Header = ({ siteMetadata }) => {
       </header>
       <nav>
         <Link to="/" activeClassName="active">
-          Home
-        </Link>
-        <Link to="/reports" activeClassName="active">
           Reports
         </Link>
       </nav>
