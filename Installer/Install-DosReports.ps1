@@ -4,7 +4,7 @@ if ($modules) { Import-Module $modules -Force -Global }
 
 [xml]$xml = @'
 <root xmlns:json="http://james.newtonking.com/projects/json">
-  <date xmlns:json="http://james.newtonking.com/projects/json">2019-01-01</date>
+  <date xmlns:json="http://james.newtonking.com/projects/json">2019-02-01</date>
   <title xmlns:json="http://james.newtonking.com/projects/json">Sepsis Rate Report</title>
   <subtitle xmlns:json="http://james.newtonking.com/projects/json">with a subtitle</subtitle>
   <latest xmlns:json="http://james.newtonking.com/projects/json" Boolean="true" />
@@ -13,7 +13,7 @@ if ($modules) { Import-Module $modules -Force -Global }
     <area>Sepsis</area>
     <report>Rate</report>
   </group>
-  <sections xmlns:json="http://james.newtonking.com/projects/json">
+  <sections xmlns:json="http://james.newtonking.com/projects/json" json:Array="true">
     <name>Rate Over Time</name>
     <chart>
       <type xmlns:json="http://james.newtonking.com/projects/json">line</type>

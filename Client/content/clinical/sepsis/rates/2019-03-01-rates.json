@@ -4,48 +4,50 @@
   "subtitle": "with a subtitle",
   "latest": true,
   "group": { "domain": "Clinical", "area": "Sepsis", "report": "Rate" },
-  "sections": {
-    "name": "Rate Over Time",
-    "chart": {
-      "type": "line",
-      "data": {
-        "labels": [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
-        ],
-        "datasets": {
-          "label": "My First dataset",
-          "backgroundColor": "red",
-          "borderColor": "red",
-          "data": [1.0, 0.78, 0.68, 0.7, 0.72, 0.65, 0.62],
-          "fill": false
-        }
-      },
-      "options": {
-        "responsive": true,
-        "title": { "display": true, "text": "Chart.js Line Chart" },
-        "tooltips": { "mode": "index", "intersect": false },
-        "hover": { "mode": "nearest", "intersect": true },
-        "scales": {
-          "xAxes": [
-            {
-              "display": true,
-              "scaleLabel": { "display": true, "labelString": "Month" }
-            }
+  "sections": [
+    {
+      "name": "Rate Over Time",
+      "chart": {
+        "type": "line",
+        "data": {
+          "labels": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July"
           ],
-          "yAxes": [
-            {
-              "display": true,
-              "scaleLabel": { "display": true, "labelString": "Value" }
-            }
-          ]
+          "datasets": {
+            "label": "My First dataset",
+            "backgroundColor": "red",
+            "borderColor": "red",
+            "data": [1.0, 0.78, 0.68, 0.7, 0.72, 0.65, 0.62],
+            "fill": false
+          }
+        },
+        "options": {
+          "responsive": true,
+          "title": { "display": true, "text": "Chart.js Line Chart" },
+          "tooltips": { "mode": "index", "intersect": false },
+          "hover": { "mode": "nearest", "intersect": true },
+          "scales": {
+            "xAxes": [
+              {
+                "display": true,
+                "scaleLabel": { "display": true, "labelString": "Month" }
+              }
+            ],
+            "yAxes": [
+              {
+                "display": true,
+                "scaleLabel": { "display": true, "labelString": "Value" }
+              }
+            ]
+          }
         }
       }
     }
-  }
+  ]
 }
