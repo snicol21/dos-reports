@@ -5,16 +5,16 @@ if ($modules) { Import-Module $modules -Force -Global }
 [xml]$xml = @'
 <root xmlns:json="http://james.newtonking.com/projects/json">
   <date xmlns:json="http://james.newtonking.com/projects/json">2019-01-01</date>
-  <title xmlns:json="http://james.newtonking.com/projects/json">Sepsis Hand Hygiene Report</title>
+  <title xmlns:json="http://james.newtonking.com/projects/json">Sepsis Rate Report</title>
   <subtitle xmlns:json="http://james.newtonking.com/projects/json">with a subtitle</subtitle>
   <latest xmlns:json="http://james.newtonking.com/projects/json" Boolean="true" />
   <group xmlns:json="http://james.newtonking.com/projects/json">
     <domain>Clinical</domain>
     <area>Sepsis</area>
-    <report>Hand Hygiene</report>
+    <report>Rate</report>
   </group>
   <sections xmlns:json="http://james.newtonking.com/projects/json">
-    <name>Compliance Over Time</name>
+    <name>Rate Over Time</name>
     <chart>
       <type xmlns:json="http://james.newtonking.com/projects/json">line</type>
       <data xmlns:json="http://james.newtonking.com/projects/json">
@@ -29,26 +29,13 @@ if ($modules) { Import-Module $modules -Force -Global }
           <label>My First dataset</label>
           <backgroundColor>red</backgroundColor>
           <borderColor>red</borderColor>
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="10" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="60" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="15" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="5" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="30" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="38" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="60" />
-          <fill Boolean="false" />
-        </datasets>
-        <datasets xmlns:json="http://james.newtonking.com/projects/json">
-          <label>My Second dataset</label>
-          <backgroundColor>blue</backgroundColor>
-          <borderColor>blue</borderColor>
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="5" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="12" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="90" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="65" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="20" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="56" />
-          <data xmlns:json="http://james.newtonking.com/projects/json" Integer="12" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="1.00" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.78" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.68" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.70" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.72" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.65" />
+          <data xmlns:json="http://james.newtonking.com/projects/json" Float="0.62" />
           <fill Boolean="false" />
         </datasets>
       </data>
@@ -84,10 +71,6 @@ if ($modules) { Import-Module $modules -Force -Global }
         </scales>
       </options>
     </chart>
-  </sections>
-  <sections xmlns:json="http://james.newtonking.com/projects/json">
-    <name>Compliance By Department</name>
-    <chart />
   </sections>
 </root>
 '@
