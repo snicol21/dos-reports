@@ -19,13 +19,15 @@
             "June",
             "July"
           ],
-          "datasets": {
-            "label": "My First dataset",
-            "backgroundColor": "red",
-            "borderColor": "red",
-            "data": [1.0, 0.78, 0.68, 0.7, 0.72, 0.65, 0.62],
-            "fill": false
-          }
+          "datasets": [
+            {
+              "label": "My First dataset",
+              "backgroundColor": "red",
+              "borderColor": "red",
+              "data": [1.0, 0.78, 0.68, 0.7, 0.72, 0.65, 0.62],
+              "fill": false
+            }
+          ]
         },
         "options": {
           "responsive": true,

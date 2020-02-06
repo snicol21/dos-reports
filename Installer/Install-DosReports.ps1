@@ -25,7 +25,7 @@ if ($modules) { Import-Module $modules -Force -Global }
         <labels xmlns:json="http://james.newtonking.com/projects/json">May</labels>
         <labels xmlns:json="http://james.newtonking.com/projects/json">June</labels>
         <labels xmlns:json="http://james.newtonking.com/projects/json">July</labels>
-        <datasets xmlns:json="http://james.newtonking.com/projects/json">
+        <datasets xmlns:json="http://james.newtonking.com/projects/json" json:Array="true">
           <label>My First dataset</label>
           <backgroundColor>red</backgroundColor>
           <borderColor>red</borderColor>
