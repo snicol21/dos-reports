@@ -1,101 +1,63 @@
 {
-  "date":"2019-01-01",
-  "title":"Sepsis Hand Hygiene Report",
-  "subtitle":"with a subtitle",
-  "latest":"true",
-  "group":{
-     "domain":"Clinical",
-     "area":"Sepsis",
-     "report":"Hand Hygiene"
-  },
-  "sections":[
-     {
-        "name":"Compliance Over Time",
-        "chart":{
-           "type":"line",
-           "data":{
-              "labels":[
-                 "January",
-                 "February",
-                 "March",
-                 "April",
-                 "May",
-                 "June",
-                 "July"
-              ],
-              "datasets":[
-                 {
-                    "label":"My First dataset",
-                    "backgroundColor":"red",
-                    "borderColor":"red",
-                    "data":[
-                       "10",
-                       "60",
-                       "15",
-                       "5",
-                       "30",
-                       "38",
-                       "60"
-                    ],
-                    "fill":"false"
-                 },
-                 {
-                    "label":"My Second dataset",
-                    "backgroundColor":"blue",
-                    "borderColor":"blue",
-                    "data":[
-                       "5",
-                       "12",
-                       "90",
-                       "65",
-                       "20",
-                       "56",
-                       "12"
-                    ],
-                    "fill":"false"
-                 }
-              ]
-           },
-           "options":{
-              "responsive":"true",
-              "title":{
-                 "display":"true",
-                 "text":"Chart.js Line Chart"
-              },
-              "tooltips":{
-                 "mode":"index",
-                 "intersect":"false"
-              },
-              "hover":{
-                 "mode":"nearest",
-                 "intersect":"true"
-              },
-              "scales":{
-                 "xAxes":[
-                    {
-                       "display":"true",
-                       "scaleLabel":{
-                          "display":"true",
-                          "labelString":"Month"
-                       }
-                    }
-                 ],
-                 "yAxes":[
-                    {
-                       "display":"true",
-                       "scaleLabel":{
-                          "display":"true",
-                          "labelString":"Value"
-                       }
-                    }
-                 ]
+  "date": "2019-01-01",
+  "title": "Sepsis Hand Hygiene Report",
+  "subtitle": "with a subtitle",
+  "latest": true,
+  "group": { "domain": "Clinical", "area": "Sepsis", "report": "Hand Hygiene" },
+  "sections": [
+    {
+      "name": "Compliance Over Time",
+      "chart": {
+        "type": "line",
+        "data": {
+          "labels": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July"
+          ],
+          "datasets": [
+            {
+              "label": "My First dataset",
+              "backgroundColor": "red",
+              "borderColor": "red",
+              "data": [10, 60, 15, 5, 30, 38, 60],
+              "fill": false
+            },
+            {
+              "label": "My Second dataset",
+              "backgroundColor": "blue",
+              "borderColor": "blue",
+              "data": [5, 12, 90, 65, 20, 56, 12],
+              "fill": false
+            }
+          ]
+        },
+        "options": {
+          "responsive": true,
+          "title": { "display": true, "text": "Chart.js Line Chart" },
+          "tooltips": { "mode": "index", "intersect": false },
+          "hover": { "mode": "nearest", "intersect": true },
+          "scales": {
+            "xAxes": [
+              {
+                "display": true,
+                "scaleLabel": { "display": true, "labelString": "Month" }
               }
-           }
+            ],
+            "yAxes": [
+              {
+                "display": true,
+                "scaleLabel": { "display": true, "labelString": "Value" }
+              }
+            ]
+          }
         }
-     },
-     {
-        "name":"Compliance By Department",
-        "chart":null
-     }
+      }
+    },
+    { "name": "Compliance By Department", "chart": null }
   ]
 }
