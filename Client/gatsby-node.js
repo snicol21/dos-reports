@@ -4,12 +4,14 @@ const { createFilePath } = require("gatsby-source-filesystem")
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === "json") {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: "slug",
-      node,
-      value: `${value}`,
-    })
+    const slug = createFilePath({ node, getNode })
+    createNodeField({ name: "slug", node, value: `${slug}` })
+
+    const routes = slug.split("/").filter(Boolean)
+    for (let i = 0; i < routes.length - 1; i++) {
+      const route = routes.slice(0, i + 1).join("/")
+      createNodeField({ name: `slug${i}`, node, value: `/${route}/` })
+    }
   }
 }
 

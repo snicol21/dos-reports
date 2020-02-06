@@ -2,5 +2,10 @@
   "date": "2020-01-01",
   "title": "Patient Safety CLABSI Surveillance Report",
   "subtitle": "with a subtitle",
+  "group": {
+    "domain": "Patient Safety",
+    "area": "Surveillance",
+    "report": "CLABSI"
+  },
   "latest": true
 }

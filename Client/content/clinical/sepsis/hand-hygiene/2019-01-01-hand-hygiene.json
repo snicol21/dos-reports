@@ -2,5 +2,10 @@
   "date": "2019-01-01",
   "title": "Sepsis Hand Hygiene Report",
   "subtitle": "with a subtitle",
+  "group": {
+    "domain": "Clinical",
+    "area": "Sepsis",
+    "report": "Hand Hygiene"
+  },
   "latest": true
 }

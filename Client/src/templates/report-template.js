@@ -24,7 +24,7 @@ const ReportLayout = ({ data: { json } }) => {
 export default ReportLayout
 
 export const pageQuery = graphql`
-  query ReportPageQuery($id: String) {
+  query($id: String) {
     json(id: { eq: $id }) {
       id
       date(formatString: "MMMM DD, YYYY")
