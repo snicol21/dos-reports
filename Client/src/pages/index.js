@@ -3,16 +3,16 @@ import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  const reports = data.allJson.edges
+  const reports = data.allData.edges
   return (
     <>
       <SEO title="Report" />
       {reports.map(report => (
         <div key={report.node.id} className="report">
           <h3 className="report-title">
-            <Link to={report.node.fields.slug}>{report.node.title}</Link>
+            <Link to={report.node.fields.slug}>{report.node.report.title}</Link>
           </h3>
-          <small className="report-date">{report.node.date}</small>
+          <small className="report-date">{report.node.report.date}</small>
           <p className="report-excerpt">excerpt</p>
         </div>
       ))}
@@ -24,21 +24,16 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    allJson(
-      sort: { fields: date, order: DESC }
-      filter: { latest: { eq: true } }
+    allData(
+      sort: { fields: report___date, order: DESC }
+      filter: { report: { latest: { eq: true } } }
     ) {
       edges {
         node {
           id
-          title
-          date
-          parent {
-            ... on File {
-              id
-              name
-              relativeDirectory
-            }
+          report {
+            title
+            date
           }
           fields {
             slug

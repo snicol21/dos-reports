@@ -1,3 +1,20 @@
+if (process.env.NODE_ENV !== `production`) {
+  require(`dotenv`).config({ path: `.env` })
+}
+const env = db_env_var => process.env[`${db_env_var}`]
+
+const SqlDbConnection = () => ({
+  client: `mssql`,
+  connection: {
+    domain: env(`DOS_REPORTS_SQL_USER_DOMAIN`),
+    user: env(`DOS_REPORTS_SQL_USER_NAME`),
+    password: env(`DOS_REPORTS_SQL_USER_PASSWORD`),
+    server: env(`DOS_REPORTS_SQL_SERVER`),
+    database: env(`DOS_REPORTS_SQL_DATABASE`),
+    options: { encrypt: true },
+  },
+})
+
 module.exports = {
   siteMetadata: {
     title: `DOS Reports`,
@@ -11,28 +28,20 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-transformer-json`,
+      resolve: `gatsby-source-sql`,
       options: {
-        typeName: `json`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: `${__dirname}/src/components/layout.js`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
+        typeName: `data`,
+        fieldName: `data`,
+        dbEngine: SqlDbConnection(),
+        queryChain: function(x) {
+          return x.raw(`
+          SELECT SlugCD AS slug
+                ,ReportJSON AS report
+                ,StatusCD as status
+          FROM [Shared].[Reports].[DosReportsBASE]
+          WHERE StatusCD = 'Active'
+          `)
+        },
       },
     },
     {
@@ -41,6 +50,13 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
         ignore: [`/adobe-xd/`],
+      },
+    },
+
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: `${__dirname}/src/components/layout.js`,
       },
     },
     {
@@ -55,5 +71,6 @@ module.exports = {
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`, // Put this at the end of everything so that it all gets cached (especially the manifest)
   ],
 }

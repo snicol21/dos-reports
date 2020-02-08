@@ -1,10 +1,9 @@
 const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  if (node.internal.type === "json") {
-    const slug = createFilePath({ node, getNode })
+  if (node.internal.type === "data") {
+    const slug = node.slug
     createNodeField({ name: "slug", node, value: `${slug}` })
 
     const routes = slug.split("/").filter(Boolean)
@@ -12,17 +11,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       const route = routes.slice(0, i + 1).join("/")
       createNodeField({ name: `slug${i}`, node, value: `/${route}/` })
     }
+
+    node.report = JSON.parse(node.report) // parse the JSON string to an Object
   }
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-
   const reportTemplate = path.resolve("src/templates/report-template.js")
-
   const result = await graphql(`
     query {
-      reports: allJson {
+      reports: allData {
         edges {
           node {
             fields {
