@@ -52,7 +52,6 @@ module.exports = {
         ignore: [`/adobe-xd/`],
       },
     },
-
     {
       resolve: `gatsby-plugin-layout`,
       options: {
