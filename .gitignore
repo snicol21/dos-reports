@@ -1,5 +1,5 @@
 #installer
 Installer/Package/*.zip
 Installer/Database/*.dacpac
-Installer/Utilities
-!Installer/Utilities/Newtonsoft-Json
+Installer/Utilities/*
+!Installer/Utilities/Newtonsoft-Json/
