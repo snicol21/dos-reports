@@ -14,7 +14,7 @@ SELECT
           'Hand Hygiene' as [report]
         FOR XML PATH ('group'), type
       )
-    FOR XML PATH (''), type
+    FOR XML PATH ('header'), type
   ),
   (
     SELECT 'true' as [@json:Array], *
@@ -124,6 +124,11 @@ SELECT
       )
     ) as sections ([name], [chart])
     FOR XML PATH ('sections'), type
+  ),
+  (
+    SELECT
+      '© 2020 Health Catalyst. All Rights Reserved.' as [text]
+    FOR XML PATH ('footer'), type
   )
 FOR XML PATH (''), ROOT ('root')
 ) as ReportXML

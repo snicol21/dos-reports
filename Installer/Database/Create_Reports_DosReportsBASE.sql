@@ -2,10 +2,11 @@ USE [Shared]
 GO
 CREATE SCHEMA [Reports]
 GO
-CREATE TABLE [Reports].[DosReportsBASE](
-	[ID] [int] NOT NULL,
-	[SlugCD] [varchar](255) NOT NULL,
-	[ReportJSON] [nvarchar](max) NOT NULL,
-	[StatusCD] [varchar](255) NOT NULL DEFAULT 'Active',
- CONSTRAINT [pkDosReportsBASE] PRIMARY KEY CLUSTERED ([ID] ASC)) ON [HCSharedData1]
+CREATE TABLE [Reports].[DosReportsBASE]
+(
+	[ReportKEY]  [VARCHAR](255)  NOT NULL,
+	[ReportJSON] [NVARCHAR](MAX) NOT NULL,
+	[StatusCD]   [VARCHAR](255)  NOT NULL DEFAULT 'Active',
+	CONSTRAINT [pkDosReportsBASE] PRIMARY KEY CLUSTERED ([ReportKEY] ASC)
+) ON [HCSharedData1]
 GO

@@ -22,13 +22,19 @@ function clean-slug ($slug) {
 
 $queries = @();
 foreach($row in $result.Tables[0].Rows) {
-    #$row.BindingID
-    #$row.BindingNM
-    #$row.LastLoadDTS
     $json = JsonConvert-SerializeXmlNode -Xml ([xml]$row.ReportXML) -OmitRootObject;
     $obj = JsonConvert-DeserializeObject -Json $json;
-    $slug = clean-slug("/$($obj.group.domain)/$($obj.group.area)/$($obj.group.report)/$($obj.date)-$($obj.group.report)/".ToLower() -replace ' ','-')
-    $queries += "INSERT INTO [Reports].[DosReportsBASE] ([ID],[SlugCD],[ReportJSON],[StatusCD]) VALUES ($($row.BindingID),'$($slug)','$($json)','Active');"
+    $key = clean-slug("/$($obj.header.group.domain)/$($obj.header.group.area)/$($obj.header.group.report)/$($obj.header.date)-$($obj.header.group.report)/".ToLower() -replace ' ','-')
+    $queries += @'
+IF EXISTS (SELECT 1 FROM [Reports].[DosReportsBASE] WHERE [ReportKEY] = '{0}')
+BEGIN
+  UPDATE [Reports].[DosReportsBASE] SET [ReportJSON] = '{1}' WHERE [ReportKEY] = '{0}';
+END
+ELSE
+BEGIN
+  INSERT INTO [Reports].[DosReportsBASE] ([ReportKEY],[ReportJSON],[StatusCD]) VALUES ('{0}','{1}','Active');
+END;
+'@ -f $key, $json
 }
 
 $script = $queries -join(' ')
