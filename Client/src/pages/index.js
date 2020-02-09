@@ -10,9 +10,13 @@ const IndexPage = ({ data }) => {
       {reports.map(report => (
         <div key={report.node.id} className="report">
           <h3 className="report-title">
-            <Link to={report.node.fields.slug}>{report.node.report.title}</Link>
+            <Link to={report.node.fields.slug}>
+              {report.node.report.header.title}
+            </Link>
           </h3>
-          <small className="report-date">{report.node.report.date}</small>
+          <small className="report-date">
+            {report.node.report.header.date}
+          </small>
           <p className="report-excerpt">excerpt</p>
         </div>
       ))}
@@ -25,15 +29,17 @@ export default IndexPage
 export const pageQuery = graphql`
   query {
     allData(
-      sort: { fields: report___date, order: DESC }
-      filter: { report: { latest: { eq: true } } }
+      sort: { fields: report___header___date, order: DESC }
+      filter: { report: { header: { latest: { eq: true } } } }
     ) {
       edges {
         node {
           id
           report {
-            title
-            date
+            header {
+              title
+              date
+            }
           }
           fields {
             slug

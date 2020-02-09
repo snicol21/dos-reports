@@ -35,7 +35,7 @@ module.exports = {
         dbEngine: SqlDbConnection(),
         queryChain: function(x) {
           return x.raw(`
-          SELECT SlugCD AS slug
+          SELECT ReportKEY AS slug
                 ,ReportJSON AS report
                 ,StatusCD as status
           FROM [Shared].[Reports].[DosReportsBASE]
