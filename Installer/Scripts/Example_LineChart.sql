@@ -35,7 +35,7 @@ SELECT
                 (
                   SELECT
                     'true' as [@json:Array],
-					'My First dataset' as [label],
+					          'My First dataset' as [label],
                     'red' as [backgroundColor],
                     'red' as [borderColor],
                     (
@@ -121,12 +121,6 @@ SELECT
             )
           FOR XML PATH (''), type
         ) /* chart */
-      ),
-
-      /* section */
-      (
-        'Compliance By Department', /* name */
-        ''
       )
     ) as sections ([name], [chart])
     FOR XML PATH ('sections'), type
