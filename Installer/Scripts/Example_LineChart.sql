@@ -3,17 +3,17 @@ SELECT (
 SELECT
   (
     SELECT
+      'Clinical' as [domain],
+      'Sepsis' as [area],
+      'Hand Hygiene' as [report],
+      'true' as [latest/@Boolean]
+    FOR XML PATH ('frontmatter'), type
+  ),
+  (
+    SELECT
       '2019-01-01' as [date],
       'Sepsis Hand Hygiene Report' as [title],
-      'with a subtitle' as [subtitle],
-      'true' as [latest/@Boolean],
-      (
-        SELECT
-          'Clinical' as [domain],
-          'Sepsis' as [area],
-          'Hand Hygiene' as [report]
-        FOR XML PATH ('group'), type
-      )
+      'with a subtitle' as [subtitle]
     FOR XML PATH ('header'), type
   ),
   (

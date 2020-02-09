@@ -16,15 +16,15 @@ catch {
 }
 
 function clean-slug ($slug) {
-    return $slug.Replace('''','-').Replace(':','-').Replace('%','-').Replace('#','-').Replace('*','-').Replace('<','-').Replace('>','-').Replace('?','-').Replace('"','-').Replace('"','-').Replace('@','-').Replace('&','-').Replace('=','-').Replace(';','-').Replace('|','-').Replace('\','-').Replace('[','-').Replace(']','-').Replace('~','-').Replace('{','-').Replace('}','-').Replace('^','-').Replace('!','-').Replace(',','-').Replace('.','-')
+    return $slug.Replace('''', '-').Replace(':', '-').Replace('%', '-').Replace('#', '-').Replace('*', '-').Replace('<', '-').Replace('>', '-').Replace('?', '-').Replace('"', '-').Replace('"', '-').Replace('@', '-').Replace('&', '-').Replace('=', '-').Replace(';', '-').Replace('|', '-').Replace('\', '-').Replace('[', '-').Replace(']', '-').Replace('~', '-').Replace('{', '-').Replace('}', '-').Replace('^', '-').Replace('!', '-').Replace(',', '-').Replace('.', '-')
 }
 
 
 $queries = @();
-foreach($row in $result.Tables[0].Rows) {
+foreach ($row in $result.Tables[0].Rows) {
     $json = JsonConvert-SerializeXmlNode -Xml ([xml]$row.ReportXML) -OmitRootObject;
     $obj = JsonConvert-DeserializeObject -Json $json;
-    $key = clean-slug("/$($obj.header.group.domain)/$($obj.header.group.area)/$($obj.header.group.report)/$($obj.header.date)-$($obj.header.group.report)/".ToLower() -replace ' ','-')
+    $key = clean-slug("/$($obj.frontmatter.domain)/$($obj.frontmatter.area)/$($obj.frontmatter.report)/$($obj.header.date)-$($obj.frontmatter.report)/".ToLower() -replace ' ', '-')
     $queries += @'
 IF EXISTS (SELECT 1 FROM [Reports].[DosReportsBASE] WHERE [ReportKEY] = '{0}')
 BEGIN
@@ -37,7 +37,7 @@ END;
 '@ -f $key, $json
 }
 
-$script = $queries -join(' ')
+$script = $queries -join (' ')
 $db = $server.Databases.Item("Shared");
 try {
     $result = $db.ExecuteWithResults($script);
