@@ -27,7 +27,7 @@ foreach($row in $result.Tables[0].Rows) {
     #$row.LastLoadDTS
     $json = JsonConvert-SerializeXmlNode -Xml ([xml]$row.ReportXML) -OmitRootObject;
     $obj = JsonConvert-DeserializeObject -Json $json;
-    $slug = clean-slug("/$($obj.group.domain)/$($obj.group.area)/$($obj.group.report)/$($obj.date)-$($obj.group.report)'s/".ToLower() -replace ' ','-')
+    $slug = clean-slug("/$($obj.group.domain)/$($obj.group.area)/$($obj.group.report)/$($obj.date)-$($obj.group.report)/".ToLower() -replace ' ','-')
     $queries += "INSERT INTO [Reports].[DosReportsBASE] ([ID],[SlugCD],[ReportJSON],[StatusCD]) VALUES ($($row.BindingID),'$($slug)','$($json)','Active');"
 }
 
