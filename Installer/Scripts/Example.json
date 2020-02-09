@@ -1,0 +1,35 @@
+{
+    "frontmatter": {
+        "domain": "Clinical",
+        "area": "Sepsis",
+        "report": "Hand Hygiene",
+        "latest": true
+    },
+    "header": {
+        "date": "2019-01-01",
+        "title": "Sepsis Hand Hygiene Report",
+        "subtitle": "with a subtitle"
+    },
+    "sections": [
+        {
+            "name": "Compliance Over Time",
+            "graphics": [
+                {
+                    "type": "line-chart",
+                    "config": {
+                        "type": "line"
+                    }
+                }
+            ]
+        }
+    ],
+    "footer": {
+        "text": "© 2020 Health Catalyst. All Rights Reserved."
+    }
+}
+
+/*
+bar-chart
+line-chart
+table
+*/
