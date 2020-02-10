@@ -24,7 +24,7 @@ $queries = @();
 foreach ($row in $result.Tables[0].Rows) {
     $json = JsonConvert-SerializeXmlNode -Xml ([xml]$row.ReportXML) -OmitRootObject;
     $obj = JsonConvert-DeserializeObject -Json $json;
-    $key = clean-slug("/$($obj.frontmatter.domain)/$($obj.frontmatter.area)/$($obj.frontmatter.report)/$($obj.header.date)-$($obj.frontmatter.report)/".ToLower() -replace ' ', '-')
+    $key = clean-slug("/$($obj.header.domain)/$($obj.header.area)/$($obj.header.report)/$($obj.header.date)-$($obj.header.report)/".ToLower() -replace ' ', '-')
     $queries += @'
 IF EXISTS (SELECT 1 FROM [Reports].[DosReportsBASE] WHERE [ReportKEY] = '{0}')
 BEGIN
