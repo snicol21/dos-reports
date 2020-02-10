@@ -1,19 +1,20 @@
 {
-    "frontmatter": {
-        "domain": "Clinical",
-        "area": "Sepsis",
-        "report": "Hand Hygiene",
-        "latest": true
-    },
     "header": {
-        "date": "2019-01-01",
-        "title": "Sepsis Hand Hygiene Report",
-        "subtitle": "with a subtitle"
+        "domain": "Examples",
+        "area": "Templates",
+        "report": "Line Charts",
+        "title": "Line Charts",
+        "subtitle": "Example report using line charts",
+        "date": "2020-02-10",
+        "latest": true
     },
     "sections": [
         {
-            "name": "Compliance Over Time",
-            "graphics": [
+            "markdown": [
+                "## Section 1",
+                " * List item \n * List item"
+            ],
+            "figures": [
                 {
                     "type": "line-chart",
                     "config": {
@@ -24,12 +25,8 @@
         }
     ],
     "footer": {
-        "text": "© 2020 Health Catalyst. All Rights Reserved."
+        "markdown": [
+            "© 2020 Health Catalyst. All Rights Reserved."
+        ]
     }
 }
-
-/*
-bar-chart
-line-chart
-table
-*/
