@@ -4,14 +4,12 @@ import SEO from "../components/seo"
 
 const ReportLayout = ({
   data: {
-    data: {
-      report: { header },
-    },
+    data: { report },
   },
 }) => {
   return (
     <>
-      <SEO title={header.title} />
+      <SEO title={report.header.title} />
       <div className="back">
         <Link to="/">
           <i className="arrow left"></i>
@@ -19,9 +17,8 @@ const ReportLayout = ({
         </Link>
       </div>
       <div className="report">
-        <h3 className="report-title">{header.title}</h3>
-        <small className="report-date">{header.date}</small>
-        <div className="report-body">body</div>
+        <h3 className="report-title">{report.header.title}</h3>
+        <small className="report-date">{report.header.date}</small>
       </div>
     </>
   )
@@ -42,3 +39,10 @@ export const pageQuery = graphql`
     }
   }
 `
+
+/*
+        {report.sections.map((section, sectionIndex) => (
+          // <MDXRenderer key={`${sectionIndex}`}>{section.md}</MDXRenderer>
+          <div key={`${sectionIndex}`}>{section.md}</div>
+        ))}
+*/

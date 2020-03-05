@@ -5,11 +5,13 @@
   "version": "0.1.0",
   "author": "Spencer Nicol <spencer.nicol@healthcatalyst.com>",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-layout": "^1.1.21",
     "gatsby-plugin-manifest": "^2.2.31",
+    "gatsby-plugin-mdx": "^1.0.71",
     "gatsby-plugin-offline": "^3.0.27",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sass": "^2.1.26",
@@ -17,7 +19,6 @@
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-source-sql": "git+https://github.com/mrfunnyshoes/gatsby-source-sql.git",
     "gatsby-transformer-sharp": "^2.3.7",
-    "mssql": "4.1.0",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -25,18 +26,28 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "mssql": "^4.1.0",
+    "node-powershell": "^4.0.0",
     "prettier": "^1.19.1"
+  },
+  "pwshDependencies": {
+    "DosInstallUtilities": "1.0.286.0",
+    "CatalystDosIdentity": "1.4.18200.12"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
+    "postinstall": "node ./scripts/postinstall",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --config ./.prettierrc --write \"**/*.{js,jsx,json,md,scss,css}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "node ./scripts/deploy"
   }
 }

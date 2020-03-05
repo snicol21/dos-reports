@@ -1,0 +1,50 @@
+{
+  "ContentId": "399ad4ee-2b03-4ffd-bab8-d0ed62aa910b",
+  "Name": "DOSReports",
+  "DataMartType": "Subject Area",
+  "Description": null,
+  "SqlAgentProxyName": "DefaultProxy",
+  "SqlCredentialName": "DefaultCredential",
+  "DefaultEngineVersion": 1,
+  "SystemName": null,
+  "DataStewardFullName": null,
+  "DataStewardEmail": null,
+  "Version": "1.0",
+  "IsHidden": "N",
+  "AttributeValues": [
+    {
+      "AttributeName": "SamDatabaseName",
+      "AttributeValue": "Shared"
+    },
+    {
+      "AttributeName": "DestinationObjectPrefixCode",
+      "AttributeValue": "DosReports2"
+    },
+    {
+      "AttributeName": "SamSchemaName",
+      "AttributeValue": "Reports"
+    },
+    {
+      "AttributeName": "SuiteName",
+      "AttributeValue": "Reports"
+    },
+    {
+      "AttributeName": "StatusCode",
+      "AttributeValue": "In Development"
+    },
+    {
+      "AttributeName": "SamTypeCode",
+      "AttributeValue": "App"
+    }
+  ],
+  "Connections": [
+    {
+      "SystemName": "EDW",
+      "DataSystemTypeCode": "SQL Server",
+      "Description": "Default EDW Connection",
+      "SystemVendorName": "Health Catalyst",
+      "SystemVersion": "2015",
+      "DataSystemVersion": "11.0.6248.0 Developer Edition (64-bit)"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-if (process.env.NODE_ENV !== `production`) {
-  require(`dotenv`).config({ path: `.env` })
-}
+// if (process.env.NODE_ENV !== `production`) {
+require(`dotenv`).config({ path: `.env` })
+// }
 const env = db_env_var => process.env[`${db_env_var}`]
 
 const SqlDbConnection = () => ({
@@ -27,6 +27,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-sql`,
       options: {

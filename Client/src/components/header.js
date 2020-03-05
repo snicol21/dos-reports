@@ -25,7 +25,7 @@ const Header = ({ siteMetadata }) => {
           <div>{siteMetadata.subtitle}</div>
         </Link>
         <Link to="/">
-          <Img critical fixed={data.logo.childImageSharp.fixed} />
+          <Img loading="eager" fixed={data.logo.childImageSharp.fixed} />
         </Link>
       </header>
       <nav>

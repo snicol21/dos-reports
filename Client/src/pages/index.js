@@ -30,7 +30,7 @@ export const pageQuery = graphql`
   query {
     allData(
       sort: { fields: report___header___date, order: DESC }
-      filter: { report: { frontmatter: { latest: { eq: true } } } }
+      filter: { report: { header: { latest: { eq: true } } } }
     ) {
       edges {
         node {

@@ -43,7 +43,7 @@ SELECT
                           (
                             SELECT
                               'true' as [@json:Array],
-                                        'My First dataset' as [label],
+                              'My First dataset' as [label],
                               'red' as [backgroundColor],
                               'red' as [borderColor],
                               (

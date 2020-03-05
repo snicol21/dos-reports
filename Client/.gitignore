@@ -69,3 +69,15 @@ yarn-error.log
 .yarn-integrity
 
 src/images/icons/*.svg
+
+pwsh_modules/*
+
+!pwsh_modules/DosMdsUtilities/
+!pwsh_modules/DosMdsUtilities/functions/
+!pwsh_modules/DosMdsUtilities/functions/public/
+!pwsh_modules/DosMdsUtilities/functions/private/
+
+!pwsh_modules/DosReportUtilities/
+!pwsh_modules/DosReportUtilities/functions/
+!pwsh_modules/DosReportUtilities/functions/public/
+!pwsh_modules/DosReportUtilities/functions/private/

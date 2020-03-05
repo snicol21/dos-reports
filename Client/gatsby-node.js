@@ -1,7 +1,8 @@
 const path = require("path")
+// const crypto = require("crypto")
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, actions, createNodeId }) => {
+  const { createNode, createNodeField, createParentChildLink } = actions
   if (node.internal.type === "data") {
     const slug = node.slug
     createNodeField({ name: "slug", node, value: `${slug}` })
@@ -13,6 +14,34 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     node.report = JSON.parse(node.report) // parse the JSON string to an Object
+
+    node.report.sections.forEach(async section => {
+      // if ("markdown" in section) {
+      //   const mdxContent = section.markdown.join("\n")
+      //   createNode({
+      //     id: createNodeId(`${node.id} >>> Mdx`),
+      //     parent: null,
+      //     children: [],
+      //     internal: {
+      //       type: `MyCustomMdxNodesFromString`,
+      //       contentDigest: crypto
+      //         .createHash(`md5`)
+      //         .update(mdxContent)
+      //         .digest(`hex`),
+      //       mediaType: `text/markdown`,
+      //       content: mdxContent,
+      //       description: `My custom MDX nodes`,
+      //     },
+      //   })
+      // }
+      if ("figures" in section) {
+        section.figures.forEach(figure => {
+          if ("config" in figure) {
+            figure.config = JSON.stringify(figure.config)
+          }
+        })
+      }
+    })
   }
 }
 
